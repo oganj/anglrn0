@@ -1,3 +1,20 @@
-app-server
-<p>servers works!</p>
-<app-server></app-server>
+<app-server *ngFor="let server of servers"></app-server>
+<button
+  class="btn btn-primary"
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()"
+>
+  Add Server
+</button>
+<p>{{ serverCreationStatus }}</p>
+
+<label>Server Name</label>
+<p>{{ serverName }}</p>
+
+<p>Event binding</p>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)" />
+
+<p>2 way Data binding</p>
+<input type="text" class="form-control" [(ngModel)]="serverName" />
+
+
